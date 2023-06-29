@@ -10,6 +10,7 @@ bool get_data(std::vector<std::vector<double>>& mat, const std::string& file_nam
 int main() {
   clock_t start = clock();
   const std::string file_name = "data.csv";
+  const unsigned int significant_figures = 15;
   std::vector<std::vector<double>> mat;
   if (get_data(mat, file_name)) return 1;
   const int N = mat.size();
@@ -37,7 +38,7 @@ int main() {
       }
     }
   }
-  std::cout << determinant << std::endl;
+  std::cout << std::setprecision(significant_figures) << determinant << std::endl;
   clock_t end = clock();
   std::cout << end - start << std::endl;
   return 0;
